@@ -60,13 +60,15 @@ section .bss
 	mul bl	;multiplicamos el registro al por bl
 
 ; IMPRIMIR RESULTADO
-	mov ah, 0 ; movemos a ah un cero para limpiar el registro
-	mov bl, 10 ; despues de realizar la multiplicacion ya no necesitamos bl 
-	div bl	   ;asi que lo volvemos a reutilzar moviendo un 10 para realizar la division
-	add al, 48 ; sumamos un 48 para obtener nuevamente el valor ascii
+;dividimos entre 10 para separar las decenas y unidades, el cociente(decenas) queda en al y el residuo(unidades) en ah
+;se observan en pantalla con sys_write, y el programa se cierra correctamente mediante sys_exit (eax=1) para liberar los recursos
+	mov ah, 0 
+	mov bl, 10 
+	div bl	  
+	add al, 48 
 	add ah, 48
-	mov [resultado], al ;movemos a la dirreccion de memoria el valor de las decenas
-	mov [resultado+1], ah ; movemos a la direccion+1  guardar las unidades
+	mov [resultado], al 
+	mov [resultado+1], ah 
 
 	mov eax, 4
 	mov ebx, 1
@@ -74,6 +76,6 @@ section .bss
  	mov edx, 2
  	int 0x80
 
-	mov eax, 1 ;llamada al sistema sys_exit(salida)
+	mov eax, 1 
 	mov ebx, 0
  	int 0x80 

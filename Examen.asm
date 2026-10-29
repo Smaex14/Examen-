@@ -17,8 +17,8 @@ section .bss
  _start:
 ;INGRESO 1
 ;se configuran los registros para invocar las llamadas al sistema 
-;con eax=4 se llama al sistema sys_write (escribir datos) para imprimir en consola el mensaje 
-;con eax=3 llama al sistema sys_read (leer datos) para capturar el número ingresado por el teclado 
+;con eax=4 se llama al sistema sys_write (escribir datos) para imprimir en consola el mensaje, ebx=1 para pasar datos de la memoria a la consola 
+;con eax=3 llama al sistema sys_read (leer datos) para capturar el número ingresado por el teclado,ebx=0 para pasar datos del usuario a la memoria 
 	mov eax, 4 
 	mov ebx, 1 
  	mov ecx, peticion 

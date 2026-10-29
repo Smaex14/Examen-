@@ -15,7 +15,7 @@ section .bss
  section .text
  global _start
  _start:
- ;peticion 1
+;INGRESO 1
 ;con eax=4 se llama al sistema sys_write (escribir datos) para imprimir en consola el mensaje 
 ;con eax=3 llama al sistema sys_read (leer datos) para capturar el número ingresado por el teclado 
 	mov eax, 4 
@@ -30,7 +30,7 @@ section .bss
  	mov edx, 2
  	int 0x80
 
-;peticion 2
+;INGRESO 2
 	mov eax, 4
 	mov ebx, 1
  	mov ecx, peticion

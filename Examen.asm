@@ -1,5 +1,5 @@
-;Aquí se definen las cadenas de texto y se calcula su longitud
-;También se reserva la memoria necesaria para almacenar las entradas y el resultado final
+;Aquí se definen las constantes de texto y se calculan sus longitudes
+;En la sección bss, se reservan 2 bytes para cada variable numérica, uno para el carácter y otro para el salto de línea 
 section .data
  	peticion db "Ingrese un numero entre 0 y 9:",0xA,0xD
  	lenP equ $ - peticion

@@ -61,7 +61,7 @@ section .bss
 
 ; IMPRIMIR RESULTADO
 ;dividimos entre 10 para separar las decenas y unidades, el cociente(decenas) queda en al y el residuo(unidades) en ah
-;se observan en pantalla con sys_write, y el programa se cierra correctamente mediante sys_exit (eax=1) para liberar los recursos
+;se observan en pantalla con sys_write, y el programa se cierra correctamente mediante sys_exit (eax=1) 
 	mov ah, 0 
 	mov bl, 10 
 	div bl	  

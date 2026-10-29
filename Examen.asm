@@ -1,5 +1,6 @@
 ;Aquí se definen las constantes de texto y se calculan sus longitudes
 ;En la sección bss, se reservan 2 bytes para cada variable numérica, uno para el carácter y otro para el salto de línea 
+
 section .data
  	peticion db "Ingrese un numero entre 0 y 9:",0xA,0xD
  	lenP equ $ - peticion
@@ -10,10 +11,9 @@ section .bss
 	num1 resb 2
 	num2 resb 2
 	resultado resb 2
- section .text
 
- global _start
-
+ section .text
+ global _start
  _start:
  ;peticion 1
 ;con eax=4 se llama al sistema sys_write (escribir datos) para imprimir en consola el mensaje 

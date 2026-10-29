@@ -1,3 +1,4 @@
+;Aquí se definen las cadenas de texto y se calcula su longitud
 section .data
  	peticion db "Ingrese un numero entre 0 y 9:",0xA,0xD
  	lenP equ $ - peticion

@@ -16,6 +16,7 @@ section .bss
  global _start
  _start:
 ;INGRESO 1
+;se configuran los registros para invocar las llamadas al sistema 
 ;con eax=4 se llama al sistema sys_write (escribir datos) para imprimir en consola el mensaje 
 ;con eax=3 llama al sistema sys_read (leer datos) para capturar el número ingresado por el teclado 
 	mov eax, 4 
@@ -43,20 +44,22 @@ section .bss
  	mov edx, 2
  	int 0x80
 
-;multiplicacion
+;MULTIPLICACIÓN 
+;se mueven los valores de la memoria a los registros de la CPU y restamos 48 para obtener el valor numerico real del  ingreso
+;se mueve a la parte baja del registro ax el primer valor
 	mov eax, 4
 	mov ebx, 1
  	mov ecx, Msgsalida
  	mov edx, lensalida
  	int 0x80
 
-	mov al, [num1] ;movemos a la parte baja del registro ax el primer valor 
-	sub al, 48 ; restamos 48 para obtener el valor numerico real del  ingreso
+	mov al, [num1]  
+	sub al, 48 
 	mov bl, [num2] 
 	sub bl, 48 
 	mul bl	;multiplicamos el registro al por bl
 
-;imprimir resultado
+; IMPRIMIR RESULTADO
 	mov ah, 0 ; movemos a ah un cero para limpiar el registro
 	mov bl, 10 ; despues de realizar la multiplicacion ya no necesitamos bl 
 	div bl	   ;asi que lo volvemos a reutilzar moviendo un 10 para realizar la division

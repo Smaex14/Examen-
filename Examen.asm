@@ -16,13 +16,15 @@ section .bss
 
  _start:
  ;peticion 1
-	mov eax, 4 ; llama al sistema sys_write (escribir datos)
+;con eax=4 se llama al sistema sys_write (escribir datos) para imprimir en consola el mensaje 
+;con eax=3 llama al sistema sys_read (leer datos) para capturar el número ingresado por el teclado 
+	mov eax, 4 
 	mov ebx, 1 
  	mov ecx, peticion 
  	mov edx, lenP
  	int 0x80 ;interrucion al sistema
 
- 	mov eax, 3 ; llama al sistema sys_read (leer datos)
+ 	mov eax, 3  
  	mov ebx, 0 ; codigo de retorno 0
  	mov ecx, num1
  	mov edx, 2

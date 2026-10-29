@@ -1,5 +1,5 @@
 ;Aquí se definen las cadenas de texto y se calcula su longitud
-; También se reserva la memoria necesaria para almacenar las entradas y el resultado final
+;También se reserva la memoria necesaria para almacenar las entradas y el resultado final
 section .data
  	peticion db "Ingrese un numero entre 0 y 9:",0xA,0xD
  	lenP equ $ - peticion
